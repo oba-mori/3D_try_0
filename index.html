@@ -1,3 +1,21 @@
-<a-scene webxr="requiredFeatures: hit-test,local-floor;
-                optionalFeatures: dom-overlay,unbounded;
-                overlayElement: #overlay;"></a-scene>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <!--three.ar.jsとaframe-ar.jsを追加(下記2行)-->
+    <script src="https://rawgit.com/google-ar/three.ar.js/master/dist/three.ar.js"></script> 
+    <script src="https://rawgit.com/chenzlabs/aframe-ar/master/dist/aframe-ar.js"></script> 
+  </head>
+  <body>
+    <!--a-sceneの次にarと書き加えることでAR機能が使える-->
+    <a-scene ar>
+      <a-cylinder position="0 0 -1" radius="0.2" height="0.5" color="#FFC65D" shadow></a-cylinder>
+      <!--カメラの子要素に空文字を追加。常に何かが描画されていないと画面が真っ白になるため-->
+      <a-entity camera>
+        <a-text position="0 0 -1"></a-text>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
