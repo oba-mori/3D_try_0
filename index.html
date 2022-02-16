@@ -1,21 +1,23 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>Hello, WebVR! - A-Frame</title>
-    <meta name="description" content="Hello, WebVR! - A-Frame">
-    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
-    <!--three.ar.jsとaframe-ar.jsを追加(下記2行)-->
-    <script src="https://rawgit.com/google-ar/three.ar.js/master/dist/three.ar.js"></script> 
-    <script src="https://rawgit.com/chenzlabs/aframe-ar/master/dist/aframe-ar.js"></script> 
-  </head>
-  <body>
-    <!--a-sceneの次にarと書き加えることでAR機能が使える-->
-    <a-scene ar>
-      <a-cylinder position="0 0 -1" radius="0.2" height="0.5" color="#FFC65D" shadow></a-cylinder>
-      <!--カメラの子要素に空文字を追加。常に何かが描画されていないと画面が真っ白になるため-->
-      <a-entity camera>
-        <a-text position="0 0 -1"></a-text>
-      </a-entity>
+
+<head>
+    <!-- <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> -->
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+</head>
+
+<body>
+    <a-scene embedded arjs="debugUIEnabled:false;" renderer="gammaOutput: true;" vr-mode-ui="enabled: false">
+        <a-assets>
+            <a-asset-item id="model" src="cube.glb"></a-asset-item>
+        </a-assets>
+
+        <a-entity scale="10 10 10" position="0 0.4 -3" animation-mixer="clip:*" gltf-model="#model" visible="true">
+        </a-entity>
+
+        <a-light type="ambient" color="#ffffff"></a-light>
+        <a-light type="point" intensity="2" position="0 4 0"></a-light>
     </a-scene>
-  </body>
+</body>
+
 </html>
