@@ -1,7 +1,13 @@
+<!--
+<参考>
+https://ysko909.github.io/posts/make-ar-with-a-frame-and-gltf/
+-->
+
 <html>
+    
 
 <head>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <!-- <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> -->
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 </head>
@@ -11,8 +17,18 @@
         <a-assets>
             <a-asset-item id="model" src="cube.glb"></a-asset-item>
         </a-assets>
-
-        <a-entity scale="0.5 0.5 0.5" position="0 0.4 -3" animation-mixer="clip:*" gltf-model="#model" visible="true">
+        
+        <!-- scale:オブジェクトの大きさ(1が基準) 「=」の後の値は"x y z" -->
+        <!-- position:オブジェクトの位置 「=」の後の値は"x y z" -->
+        <!-- animation-mixer -->
+        <!-- gltf-model -->
+        <!-- visible -->
+        <a-entity
+        scale="0.5 0.5 0.5" 
+        position="0 0.4 -3" 
+        animation-mixer="clip:*" 
+        gltf-model="#model" 
+        visible="true">
         </a-entity>
 
         <a-light type="ambient" color="#ffffff"></a-light>
