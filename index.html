@@ -7,22 +7,39 @@ https://ysko909.github.io/posts/make-ar-with-a-frame-and-gltf/
     
 
 <head>
+    <!--下記3行のうち必要ないものがあるかも-->
+    
+    <!--  -->
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    
+    <!--  -->
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    
+    <!-- A-Frame extrasという拡張機能を利用 -->
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 </head>
 
 <body>
-    <a-scene embedded arjs="debugUIEnabled:false;" renderer="gammaOutput: true;" vr-mode-ui="enabled: false">
-        <a-assets>
-            <a-asset-item id="model" src="cube.glb"></a-asset-item>
+    <!-- embedded arjs: -->
+    <!-- renderer="gammaOutput: true;:3Dモデルに対する光の調節 -->
+    <!-- vr-mode-ui="enabled: false":ブラウザの画面下に現れるVR用画面のためのボタンを非表示 -->
+    <a-scene 
+        embedded arjs="debugUIEnabled:false;" 
+        renderer="gammaOutput: true;"
+        vr-mode-ui="enabled: false">
+        
+         <a-assets>
+            <a-asset-item 
+                id="model" 
+                src="cube.glb">
+            </a-asset-item>
         </a-assets>
         
         <!-- scale:オブジェクトの大きさ(1が基準) 「=」の後の値は"x y z" -->
         <!-- position:オブジェクトの位置(カメラが基準(0)？) 「=」の後の値は"x y z" -->
-        <!-- animation-mixer  -->
-        <!-- gltf-model -->
-        <!-- visible -->
+        <!-- animation-mixer:モーション設定のあるglTFでは必須 (clip:*はどんなモーションでも実行する)-->
+        <!-- gltf-model: -->
+        <!-- visible:よくわからない(デフォルトでtrueになっているはず) -->
         <a-entity
         scale="0.5 0.5 0.5" 
         position="0 0.4 -3" 
@@ -30,7 +47,8 @@ https://ysko909.github.io/posts/make-ar-with-a-frame-and-gltf/
         gltf-model="#model" 
         visible="true">
         </a-entity>
-
+        
+        <!-- a-light:光の調節 -->
         <a-light type="ambient" color="#ffffff"></a-light>
         <a-light type="point" intensity="2" position="0 4 0"></a-light>
     </a-scene>
